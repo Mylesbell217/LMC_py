@@ -12,6 +12,13 @@
     + takes a file as input and converts it into the corresponding 'binary' output
     + ...
 
+## Resources used:
+Here are some of the resources I have used along the way to help create this project:
++ https://peterhigginson.co.uk/lmc/help_new.html
++ https://en.wikipedia.org/wiki/Little_Man_Computer
++ https://www.yorku.ca/sychen/research/LMC/LMCInstructions.html
++ https://github.com/Portsmouth-Computing/LittleManComputer
+
 ## TODO:
 - [x] Emulator:
     - [x] 100 memory locations

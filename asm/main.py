@@ -14,7 +14,11 @@ if __name__ == "__main__":
 
     #lex.read_file(get_file_name())
     #print(lex.parse_inst("SUB"))
-    lex.decode_line("LOOP   LDA A")
+    #lex.decode_line("LOOP   LDA A")
+    file_name = get_file_name()
+
+    #TODO: use the read_file function to pass the file text into decode_line 
+    lex.decode_line(file)
 
 
     print(f'execution took {(time.time() - timer)*1000} ms')
