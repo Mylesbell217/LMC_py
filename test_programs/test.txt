@@ -1,0 +1,6 @@
+LDA three
+SUB count
+OUT
+HLT
+count DAT 1
+three DAT 3

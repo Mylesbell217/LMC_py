@@ -1,0 +1,10 @@
+- has list of size 100
+- has an accumulator
+- goes through each instruction in the list and splits into opcode and operand
+- runs each instruction in order
+- prints output of acc at end, as well as mem contents
+
+
+https://peterhigginson.co.uk/lmc/help_new.html
+https://en.wikipedia.org/wiki/Little_Man_Computer
+https://www.yorku.ca/sychen/research/LMC/LMCInstructions.html

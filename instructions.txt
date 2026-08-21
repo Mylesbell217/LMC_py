@@ -1,0 +1,11 @@
+000 - HLT
+1xx - ADD
+2xx - SUB
+3xx - STA
+4 - 
+5xx - LDA
+6xx - BRA
+7xx - BRZ
+8xx - BRP
+9(01/02) - INP/OUT
+DAT
