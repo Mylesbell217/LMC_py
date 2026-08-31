@@ -15,15 +15,17 @@ if __name__ == "__main__":
     #lex.read_file(get_file_name())
     #print(lex.parse_inst("SUB"))
     #lex.decode_line("LOOP   LDA A")
+
+    #TODO: remove this redundant function, add logic for file name validation
+    #TODO: ensure file name ends in .txt (change to .s later)
     file_name = get_file_name()
 
-    #TODO: use the read_file function to pass the file text into decode_line
-
     #testing reading from file
-    #TODO: ensure file name ends in .txt (change to .s later)
+
     try:
         with open(file_name) as file:
-            lex.decode_line(file.readline())
+            for line in file:
+                print(lex.decode_line(line.strip()))
     except FileNotFoundError:
         print("Must be a valid .txt file")
 

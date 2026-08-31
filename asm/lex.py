@@ -60,12 +60,17 @@ def decode_line(line: str):
     parts = line.split(" ")
     parts = list(filter(None, parts)) #removes whitespace
 
-    print(parts)
-    print(len(parts))
+    #print(parts)
+    #print(len(parts))
 
     #filters out the instructions from a line of code
-    for item in parts:
-        if item in instructions:
-            print(item)
-        else:
-            print("identifier")
+    opcode = parse_inst(parts[0])
+
+
+    #TODO: recognise that not all instructions have operands (HLT etc)
+    data = int(parts[1])
+    if data < 10:
+        inst = f'{opcode}0{data}'
+    else:
+        inst = f'{opcode}{data}'
+    return inst
