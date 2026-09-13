@@ -40,9 +40,9 @@ def parse_inst(inst: str) -> str:
         case "BRP":
             return "8"
         case "INP":
-            return "901"
+            return "INP"
         case "OUT":
-            return "902"
+            return "OUT"
         case "DAT":
             return "data"
         case _:

@@ -3,7 +3,7 @@
 #Stages:
 #1. Preprocess - remove empty lines /
 #2. Lex - store labels in list /
-#3. Parse - convert each line to binary + match label locations
+#3. Parse - convert each line to binary + match label locations /
 #4. Gen - write into final output file
 
 
@@ -47,11 +47,11 @@ if __name__ == "__main__":
     #extracts labels from the buffer
     #stores in an array as a list with name and address
     for i in range(len(read_buffer)):
-        if len(read_buffer[i]) == 3:
+        if read_buffer[i][0] not in lex.instructions:
             labels[read_buffer[i][0]] = i
             del read_buffer[i][0]
     print(labels)
-    #print(read_buffer)
+    print(read_buffer)
     
     #print(lex.get_labels(read_buffer[0]))
 
@@ -62,10 +62,18 @@ if __name__ == "__main__":
         if opcode == "0":
             operand = "0"
         elif opcode == "data":
-            opcode = ""
-            operand = "0" + read_buffer[i][1]
-        elif opcode == "901" or opcode == "902":
-            operand = ""
+            try:
+                opcode = ""
+                operand = "0" + read_buffer[i][1]
+            except IndexError:
+                opcode = ""
+                operand = "00"
+        elif opcode == "INP":
+            opcode = "9"
+            operand = "1"
+        elif opcode == "OUT":
+            opcode = "9"
+            operand = "2"
         else:
             operand = read_buffer[i][1]
 
