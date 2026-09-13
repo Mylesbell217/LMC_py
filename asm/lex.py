@@ -39,8 +39,10 @@ def parse_inst(inst: str) -> str:
             return "7"
         case "BRP":
             return "8"
-        case "INP" | "OUT":
-            return "9"
+        case "INP":
+            return "901"
+        case "OUT":
+            return "902"
         case "DAT":
             return "data"
         case _:
@@ -66,6 +68,7 @@ def decode_line(line: str):
     return inst
 
 
+#THIS FUNCTION IS CURRENTLY REDUNDANT AS I FOUND ANOTHER WAY TO DIRECTLY FIND LABELS
 #generates label table
 def get_labels(buffer: list) -> list:
     labels = []
