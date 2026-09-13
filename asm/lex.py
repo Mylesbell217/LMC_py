@@ -47,12 +47,6 @@ def parse_inst(inst: str) -> str:
             return "Error"
 
 
-#reads a given file
-def read_file(fileName: str):
-    with open(fileName, 'r') as file:
-        print(file.readlines())
-
-
 #breaks a line down into pieces
 #TODO: finish converting the line into binary equivalent
 #use the test file for this, then integrate left hand side tags
@@ -60,12 +54,8 @@ def decode_line(line: str):
     parts = line.split(" ")
     parts = list(filter(None, parts)) #removes whitespace
 
-    #print(parts)
-    #print(len(parts))
-
     #filters out the instructions from a line of code
     opcode = parse_inst(parts[0])
-
 
     #TODO: recognise that not all instructions have operands (HLT etc)
     data = int(parts[1])
@@ -74,3 +64,15 @@ def decode_line(line: str):
     else:
         inst = f'{opcode}{data}'
     return inst
+
+
+#generates label table
+def get_labels(buffer: list) -> list:
+    labels = []
+    for line in buffer:
+        words = line.split(" ")
+        if words[0] not in instructions:
+            labels.append(words[0])
+        else:
+            print(line)
+    return labels

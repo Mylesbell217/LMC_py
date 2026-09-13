@@ -1,5 +1,7 @@
-ADD 5
-SUB 5
-STA 5
-LDA 5
-HLT 5
+start   ADD 5
+        SUB 5
+        STA 5
+
+
+        LDA 5
+        HLT 5

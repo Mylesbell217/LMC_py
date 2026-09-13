@@ -8,9 +8,9 @@
             "name": "Python Debugger: Current File with Arguments",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/main.py",
+            "program": "${workspaceFolder}/asm/main.py",
             "console": "integratedTerminal",
-            "args": ["test_programs/test2_bin.txt"]
+            "args": ["${workspaceFolder}/asm/text.txt"]
         },
         {
             "name": "Python Debugger: Current File",
