@@ -4,7 +4,7 @@
 #1. Preprocess - remove empty lines /
 #2. Lex - store labels in list /
 #3. Parse - convert each line to binary + match label locations /
-#4. Gen - write into final output file
+#4. Gen - write into final output file /
 
 
 import time
@@ -56,6 +56,8 @@ if __name__ == "__main__":
     #print(lex.get_labels(read_buffer[0]))
 
     #parse section:
+    out_buffer = []
+
     for i in range(len(read_buffer)):
         opcode = lex.parse_inst(read_buffer[i][0])
         operand = ""
@@ -79,17 +81,26 @@ if __name__ == "__main__":
 
         try:
             if int(operand) < 10:
-                print(f'{opcode}0{operand}')
+                #print(f'{opcode}0{operand}')
+                out_buffer.append(f'{opcode}0{operand}\n')
             elif int(operand) >= 10:
-                print(f'{opcode}{operand}')
+                #print(f'{opcode}{operand}')
+                out_buffer.append(f'{opcode}{operand}\n')
         except ValueError:
             if operand in labels:
                 if int(labels[operand]) < 10:
-                    print(f'{opcode}0{labels[operand]}')
+                    #print(f'{opcode}0{labels[operand]}')
+                    out_buffer.append(f'{opcode}0{labels[operand]}\n')
                 else:
-                    print(f'{opcode}{labels[operand]}')
+                    #print(f'{opcode}{labels[operand]}')
+                    out_buffer.append(f'{opcode}{labels[operand]}\n')
             else:
                 print("error")
+
+    #CodeGen:
+    with open("asm/main.txt", 'w') as bin:
+        bin.writelines(out_buffer)
+
 
 #    #testing reading from file
 #    try:
